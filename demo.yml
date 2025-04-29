@@ -1,10 +1,8 @@
-- name: Print the sample text
+- name: Print sample text
   host: localhost
   tasks:
-    - name: print statement
-        ansible.builtin.debug
-      msg: I love pundi
+   - name: Print
+     ansible.builtin.debug:
+       msg: I love Pundi
 
 
-
-#bl abla blababla
