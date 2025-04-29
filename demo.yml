@@ -1,0 +1,6 @@
+- name: Print the sample text
+  host: localhost
+  tasks: 
+   - name: print statement
+     ansible.builtin.debug
+       msg: I love pundi
