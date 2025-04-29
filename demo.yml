@@ -1,3 +1,4 @@
 - name: Get uptime information
+  hosts: localhost
   ansible.builtin.shell: /usr/bin/uptime
   register: result
