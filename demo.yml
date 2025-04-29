@@ -1,4 +1,8 @@
-- name: Get uptime information
+- name: Print sample text
   hosts: localhost
-  ansible.builtin.shell: /usr/bin/uptime
-  register: result
+  tasks:
+   - name: Print
+     ansible.builtin.debug:
+       msg: I love myself
+
+
