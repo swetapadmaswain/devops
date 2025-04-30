@@ -1,5 +1,5 @@
 - name: frontend
-  host: localhost
+  host: all
   become: yes #every command ansible will run, this will add sudo to it
   tasks:
     - name: install ngnix
