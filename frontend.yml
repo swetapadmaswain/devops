@@ -1,32 +1,32 @@
 - name: frontend
   host: localhost
-  become: yes
+  become: yes #every command ansible will run, this will add sudo to it
   tasks:
     - name: install ngnix
       ansible.builtin.dnf:
         name: ngnix
         state: latest
 
-    - name: copy expense ngnix configuration       #first copy the expense.conf to the destination
+    - name: copy expense ngnix configuration #first copy the expense.conf to the destination
       ansible.builtin.copy:
         src: expense.conf
         dest: /etc/nginx/default.d/expense.conf
 
-    - name: clean the old data                    #then we need to remove the html content from the directory /usr/share/nginx/html
+    - name: clean the old data #then we need to remove the html content from the directory /usr/share/nginx/html
       ansible.builtin.file:
         path: /usr/share/nginx/html
-        state: absent          #remove is said as absent
+        state: absent #remove is said as absent
 
-    - name: create app directory                 #once remove is done ,we need to recreate that
+    - name: create app directory #once remove is done ,we need to recreate that
       ansible.builtin.file:
         path: /usr/share/nginx/html
         state: directory
 
     - name: download and extract app Content
       ansible.builtin.unarchive:
-        src: https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip    #download the artifact from the s3 repo where the developer is mainting it
+        src: https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip #download the artifact from the s3 repo where the developer is mainting it
         dest: /usr/share/nginx/html
-        remote_src: yes      #this gives the power to download from external internet resources
+        remote_src: yes #this gives the power to download from external internet resources
 
     - name: start ngnix Service
       ansible.builtin.systemd_service:
