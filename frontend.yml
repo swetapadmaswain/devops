@@ -4,7 +4,7 @@
   tasks:
     - name: install ngnix
       ansible.builtin.dnf:
-        name: ngnix
+        name: nginx
         state: latest
 
     - name: copy expense ngnix configuration #first copy the expense.conf to the destination
@@ -28,8 +28,8 @@
         dest: /usr/share/nginx/html
         remote_src: yes #this gives the power to download from external internet resources
 
-    - name: start ngnix Service
+    - name: start nginx Service
       ansible.builtin.systemd_service:
-        name: ngnix
+        name: nginx
         state: restarted #since once server is started, we need to restart to avoid failures
         enabled: yes
