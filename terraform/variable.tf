@@ -32,3 +32,5 @@ output "map" {
 output "m_1" {
   value = var.map[x]
 }
+
+variable "env" {}
