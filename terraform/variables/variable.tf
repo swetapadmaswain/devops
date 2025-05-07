@@ -34,3 +34,4 @@ output "m_1" {
 }
 
 variable "env" {}
+variable "name" {}

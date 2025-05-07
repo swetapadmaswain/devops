@@ -12,7 +12,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "test" {
-  bucket = "my-tf-test-bucket-bdgdko-nsjs"
+  bucket = var.name
 
   tags = {
     Name        = "My bucket"
