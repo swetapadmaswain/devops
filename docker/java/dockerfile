@@ -6,4 +6,4 @@ COPY main.java /usr/src/app
 
 RUN javac main.java 
 
-CMD [ "java" "Main" ]
+CMD [ "java" "main" ]
