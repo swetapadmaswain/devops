@@ -32,7 +32,7 @@ metadata:
   namespace: app-1
 
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:        #same as labels to connect both
     app: nginx
   ports:
