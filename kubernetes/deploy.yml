@@ -32,9 +32,11 @@ metadata:
   namespace: app-1
 
 spec:
+  type: NodePort
   selector:        #same as labels to connect both
     app: nginx
   ports:
     - protocol: TCP
       port: 80
       targetPort: 9376
+      #nodePort: 30003
