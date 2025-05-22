@@ -20,3 +20,21 @@ spec:
           image: nginx:stable-bookworm-perl
           ports:
             - containerPort: 80
+
+---
+#load balancer
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-nginx-service
+  labels:
+    app: nginx #label is required
+  namespace: app-1
+
+spec:
+  selector:        #same as labels to connect both
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 9376
